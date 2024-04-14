@@ -1,0 +1,50 @@
+all_service_defaults:
+
+traefik:
+  http_basic_users: "{{ (bitwardenFields "item" "traefik").http_basic_users.value }}"
+  internal_ip_ranges: [100.64.0.0/10]
+
+portainer:
+  admin_user: "{{ (bitwarden "item" "portainer").login.username }}"
+  admin_password: "{{ (bitwarden "item" "portainer").login.password }}"
+
+watchtower:
+  http_token: "{{ (bitwardenFields "item" "watchtower").http_token.value }}"
+  telegram_bot_token: "{{ (bitwardenFields "item" "watchtower").telegram_bot_token.value }}"
+
+autoheal:
+  telegram_bot:
+    enabled: false
+    token: ""
+    channel_id: ""
+
+vaultwarden:
+  http_basic_users: "{{ (bitwardenFields "item" "vaultwarden").http_basic_users.value }}"
+  admin_token: "{{ (bitwardenFields "item" "vaultwarden").admin_token.value }}"
+  postgres_user: "{{ (bitwarden "item" "postgres15").login.username }}"
+  postgres_password: "{{ (bitwarden "item" "postgres15").login.password }}" 
+
+tailscale:
+  name: tailscale
+
+piped:
+  postgres_user: "{{ (bitwarden "item" "postgres15").login.username }}"
+  postgres_password: "{{ (bitwarden "item" "postgres15").login.password }}" 
+
+homarr:
+  name: homarr
+
+postgres15:
+  postgres_user: "{{ (bitwarden "item" "postgres15").login.username }}"
+  postgres_password: "{{ (bitwarden "item" "postgres15").login.password }}" 
+
+paperlessngx:
+  paperless_admin_user: "{{ (bitwarden "item" "paperlessngx").login.username }}"
+  paperless_admin_password: "{{ (bitwarden "item" "paperlessngx").login.password }}"
+  postgres_user: "{{ (bitwarden "item" "postgres15").login.username }}"
+  postgres_password: "{{ (bitwarden "item" "postgres15").login.password }}" 
+  
+
+gitea:
+  postgres_user: "{{ (bitwarden "item" "postgres15").login.username }}"
+  postgres_password: "{{ (bitwarden "item" "postgres15").login.password }}" 
