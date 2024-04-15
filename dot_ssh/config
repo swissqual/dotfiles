@@ -1,0 +1,14 @@
+# naslyn
+Host naslyn.myds.me
+PubkeyAuthentication yes
+IdentityFile ~/.ssh/minda_private.ppk.ssh
+
+# naslyn rerouted NCMSA_NTP
+Host 172.23.137.91
+PubkeyAuthentication yes
+IdentityFile ~/.ssh/minda_private.ppk.ssh
+
+# sqml01.dyndns24.ch server
+Host sqml01.dyndns24.ch
+PubkeyAuthentication yes
+IdentityFile ~/.ssh/id_rsa
