@@ -21,15 +21,15 @@ autoheal:
 vaultwarden:
   http_basic_users: "{{ (bitwardenFields "item" "vaultwarden").http_basic_users.value }}"
   admin_token: "{{ (bitwardenFields "item" "vaultwarden").admin_token.value }}"
-  postgres_user: "{{ (bitwarden "item" "postgres15").login.username }}"
-  postgres_password: "{{ (bitwarden "item" "postgres15").login.password }}" 
+  vaultwarden_db_user: "{{ (bitwardenFields "item" "postgres15").vaultwarden_db_user.value }}"
+  vaultwarden_db_password: "{{ (bitwardenFields "item" "postgres15").vaultwarden_db_password.value }}" 
 
 tailscale:
   name: tailscale
 
 piped:
-  postgres_user: "{{ (bitwarden "item" "postgres15").login.username }}"
-  postgres_password: "{{ (bitwarden "item" "postgres15").login.password }}" 
+  piped_db_user: "{{ (bitwardenFields "item" "postgres15").piped_db_user.value }}"
+  piped_db_password: "{{ (bitwardenFields "item" "postgres15").piped_db_password.value }}" 
 
 homarr:
   name: homarr
@@ -41,10 +41,10 @@ postgres15:
 paperlessngx:
   paperless_admin_user: "{{ (bitwarden "item" "paperlessngx").login.username }}"
   paperless_admin_password: "{{ (bitwarden "item" "paperlessngx").login.password }}"
-  postgres_user: "{{ (bitwarden "item" "postgres15").login.username }}"
-  postgres_password: "{{ (bitwarden "item" "postgres15").login.password }}" 
+  paperless_db_user: "{{ (bitwardenFields "item" "postgres15").paperless_db_user.value }}"
+  paperless_db_password: "{{ (bitwardenFields "item" "postgres15").paperless_db_password.value }}" 
   
 
 gitea:
-  postgres_user: "{{ (bitwarden "item" "postgres15").login.username }}"
-  postgres_password: "{{ (bitwarden "item" "postgres15").login.password }}" 
+  gitea_db_user: "{{ (bitwardenFields "item" "postgres15").gitea_db_user.value }}"
+  gitea_db_password: "{{ (bitwardenFields "item" "postgres15").gitea_db_password.value }}" 

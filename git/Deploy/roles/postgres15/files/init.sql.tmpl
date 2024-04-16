@@ -1,0 +1,15 @@
+CREATE DATABASE vaultwarden;
+CREATE DATABASE piped;
+CREATE DATABASE paperless;
+CREATE DATABASE gitea;
+
+CREATE USER {{ (bitwardenFields "item" "postgres15").vaultwarden_db_user.value }} WITH PASSWORD '{{ (bitwardenFields "item" "postgres15").vaultwarden_db_password.value }}'
+CREATE USER {{ (bitwardenFields "item" "postgres15").piped_db_user.value }} WITH PASSWORD '{{ (bitwardenFields "item" "postgres15").piped_db_password.value }}' 
+CREATE USER {{ (bitwardenFields "item" "postgres15").paperless_db_user.value }} WITH PASSWORD '{{ (bitwardenFields "item" "postgres15").paperless_db_password.value }}'
+CREATE USER {{ (bitwardenFields "item" "postgres15").gitea_db_user.value }} WITH PASSWORD '{{ (bitwardenFields "item" "postgres15").gitea_db_password.value }}'
+
+GRANT ALL PRIVILEGES ON DATABASE "vaultwarden" to {{ (bitwardenFields "item" "postgres15").vaultwarden_db_user.value }};
+GRANT ALL PRIVILEGES ON DATABASE "piped" to {{ (bitwardenFields "item" "postgres15").piped_db_user.value }};
+GRANT ALL PRIVILEGES ON DATABASE "paperless" to {{ (bitwardenFields "item" "postgres15").paperless_db_user.value }};
+GRANT ALL PRIVILEGES ON DATABASE "gitea" to {{ (bitwardenFields "item" "postgres15").gitea_db_user.value }};
+
