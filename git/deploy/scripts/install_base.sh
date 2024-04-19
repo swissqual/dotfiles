@@ -10,7 +10,6 @@ unzip /tmp/bw.zip -d /tmp/bw
 sudo mv /tmp/bw/bw /usr/local/bin -f
 sudo chmod u+x /usr/local/bin/bw
 rm /tmp/bw.zip
-rm /tmp/bw
 
 # Install chezmoi
 sudo sh -c "$(curl -fsLS get.chezmoi.io)" -- -b /usr/local/bin
