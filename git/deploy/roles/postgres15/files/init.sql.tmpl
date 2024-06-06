@@ -2,29 +2,35 @@ CREATE DATABASE vaultwarden;
 CREATE DATABASE piped;
 CREATE DATABASE paperless;
 CREATE DATABASE gitea;
+CREATE DATABASE freshrss;
 
 CREATE USER {{ (bitwardenFields "item" "postgres15").vaultwarden_db_user.value }} WITH PASSWORD '{{ (bitwardenFields "item" "postgres15").vaultwarden_db_password.value }}';
 CREATE USER {{ (bitwardenFields "item" "postgres15").piped_db_user.value }} WITH PASSWORD '{{ (bitwardenFields "item" "postgres15").piped_db_password.value }}';
 CREATE USER {{ (bitwardenFields "item" "postgres15").paperless_db_user.value }} WITH PASSWORD '{{ (bitwardenFields "item" "postgres15").paperless_db_password.value }}';
 CREATE USER {{ (bitwardenFields "item" "postgres15").gitea_db_user.value }} WITH PASSWORD '{{ (bitwardenFields "item" "postgres15").gitea_db_password.value }}';
+CREATE USER {{ (bitwardenFields "item" "postgres15").freshrss_db_user.value }} WITH PASSWORD '{{ (bitwardenFields "item" "postgres15").freshrss_db_password.value }}';
 
 REVOKE CONNECT ON DATABASE basync FROM PUBLIC;
 REVOKE CONNECT ON DATABASE vaultwarden FROM PUBLIC;
 REVOKE CONNECT ON DATABASE piped FROM PUBLIC;
 REVOKE CONNECT ON DATABASE paperless FROM PUBLIC;
 REVOKE CONNECT ON DATABASE gitea FROM PUBLIC;
+REVOKE CONNECT ON DATABASE freshrss FROM PUBLIC;
 
 GRANT CONNECT ON DATABASE vaultwarden TO {{ (bitwardenFields "item" "postgres15").vaultwarden_db_user.value }};
 GRANT CONNECT ON DATABASE piped TO {{ (bitwardenFields "item" "postgres15").piped_db_user.value }};
 GRANT CONNECT ON DATABASE paperless TO {{ (bitwardenFields "item" "postgres15").paperless_db_user.value }};
 GRANT CONNECT ON DATABASE gitea TO {{ (bitwardenFields "item" "postgres15").gitea_db_user.value }};
+GRANT CONNECT ON DATABASE freshrss TO {{ (bitwardenFields "item" "postgres15").freshrss_db_user.value }};
 
 ALTER DATABASE vaultwarden OWNER TO {{ (bitwardenFields "item" "postgres15").vaultwarden_db_user.value }};
 ALTER DATABASE piped OWNER TO {{ (bitwardenFields "item" "postgres15").piped_db_user.value }};
 ALTER DATABASE paperless OWNER TO {{ (bitwardenFields "item" "postgres15").paperless_db_user.value }};
 ALTER DATABASE gitea OWNER TO {{ (bitwardenFields "item" "postgres15").gitea_db_user.value }};
+ALTER DATABASE freshrss OWNER TO {{ (bitwardenFields "item" "postgres15").freshrss_db_user.value }};
 
 GRANT ALL PRIVILEGES ON DATABASE vaultwarden TO {{ (bitwardenFields "item" "postgres15").vaultwarden_db_user.value }};
 GRANT ALL PRIVILEGES ON DATABASE piped TO {{ (bitwardenFields "item" "postgres15").piped_db_user.value }};
 GRANT ALL PRIVILEGES ON DATABASE paperless TO {{ (bitwardenFields "item" "postgres15").paperless_db_user.value }};
 GRANT ALL PRIVILEGES ON DATABASE gitea TO {{ (bitwardenFields "item" "postgres15").gitea_db_user.value }};
+GRANT ALL PRIVILEGES ON DATABASE freshrss TO {{ (bitwardenFields "item" "postgres15").freshrss_db_user.value }};
