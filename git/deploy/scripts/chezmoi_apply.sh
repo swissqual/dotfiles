@@ -6,7 +6,7 @@ export BW_SESSION=$(bw login norabuild@work --raw)
 
 # Init / apply chezmoi
 chezmoi init https://github.com/swissqual/dotfiles.git --branch sqml01-hetzner
-chezmoi apply
+chezmoi update
 
 # Bitwarden logout
 bw logout
