@@ -19,6 +19,7 @@ autoheal:
     channel_id: ""
 
 vaultwarden:
+  organization: swissqual
   http_basic_users: "{{ (bitwardenFields "item" "vaultwarden").http_basic_users.value }}"
   admin_token: "{{ (bitwardenFields "item" "vaultwarden").admin_token.value }}"
   vaultwarden_db_user: "{{ (bitwardenFields "item" "postgres15").vaultwarden_db_user.value }}"
@@ -44,7 +45,15 @@ paperlessngx:
   paperless_db_user: "{{ (bitwardenFields "item" "postgres15").paperless_db_user.value }}"
   paperless_db_password: "{{ (bitwardenFields "item" "postgres15").paperless_db_password.value }}" 
   
-
 gitea:
   gitea_db_user: "{{ (bitwardenFields "item" "postgres15").gitea_db_user.value }}"
   gitea_db_password: "{{ (bitwardenFields "item" "postgres15").gitea_db_password.value }}" 
+
+inbucket:
+  name: inbucket
+
+freshrss:
+  freshrss_db_user: "{{ (bitwardenFields "item" "postgres15").freshrss_db_user.value }}"
+  freshrss_db_password: "{{ (bitwardenFields "item" "postgres15").freshrss_db_password.value }}" 
+  freshrss_admin_password: "{{ (bitwarden "item" "freshrss").login.password }}"
+  freshrss_admin_api_password: "{{ (bitwardenFields "item" "freshrss").freshrss_admin_api_password.value }}" 
