@@ -45,10 +45,6 @@ paperlessngx:
   paperless_db_user: "{{ (bitwardenFields "item" "postgres15").paperless_db_user.value }}"
   paperless_db_password: "{{ (bitwardenFields "item" "postgres15").paperless_db_password.value }}" 
   
-gitea:
-  gitea_db_user: "{{ (bitwardenFields "item" "postgres15").gitea_db_user.value }}"
-  gitea_db_password: "{{ (bitwardenFields "item" "postgres15").gitea_db_password.value }}" 
-
 inbucket:
   name: inbucket
 
@@ -57,3 +53,17 @@ freshrss:
   freshrss_db_password: "{{ (bitwardenFields "item" "postgres15").freshrss_db_password.value }}" 
   freshrss_admin_password: "{{ (bitwarden "item" "freshrss").login.password }}"
   freshrss_admin_api_password: "{{ (bitwardenFields "item" "freshrss").freshrss_admin_api_password.value }}" 
+
+shlink:
+  shlink_db_user: "{{ (bitwardenFields "item" "postgres15").shlink_db_user.value }}"
+  shlink_db_password: "{{ (bitwardenFields "item" "postgres15").shlink_db_password.value }}"
+  api_key: "{{ (bitwardenFields "item" "shlink").shlink_api_key.value }}"
+
+shlinkweb:
+  api_key: "{{ (bitwardenFields "item" "shlink").shlink_api_key.value }}"
+
+sftpgo:
+  sftpgo_admin_user: "{{ (bitwarden "item" "sftpgo").login.username }}"
+  sftpgo_admin_password: "{{ (bitwarden "item" "sftpgo").login.password }}" 
+  sftpgo_db_user: "{{ (bitwardenFields "item" "postgres15").sftpgo_db_user.value }}"
+  sftpgo_db_password: "{{ (bitwardenFields "item" "postgres15").sftpgo_db_password.value }}"
