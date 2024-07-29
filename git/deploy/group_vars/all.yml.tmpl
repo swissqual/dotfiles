@@ -19,7 +19,7 @@ autoheal:
     channel_id: ""
 
 vaultwarden:
-  organization: swissqual
+  organization: home
   http_basic_users: "{{ (bitwardenFields "item" "vaultwarden").http_basic_users.value }}"
   admin_token: "{{ (bitwardenFields "item" "vaultwarden").admin_token.value }}"
   vaultwarden_db_user: "{{ (bitwardenFields "item" "postgres15").vaultwarden_db_user.value }}"
