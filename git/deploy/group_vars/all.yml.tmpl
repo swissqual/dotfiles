@@ -57,10 +57,10 @@ freshrss:
 shlink:
   shlink_db_user: "{{ (bitwardenFields "item" "postgres15").shlink_db_user.value }}"
   shlink_db_password: "{{ (bitwardenFields "item" "postgres15").shlink_db_password.value }}"
-  api_key: "{{ (bitwardenFields "item" "shlink").shlink_api_key.value }}"
+  api_key: "{{ (bitwardenFields "item" "shlink").api_key.value }}"
 
 shlinkweb:
-  api_key: "{{ (bitwardenFields "item" "shlink").shlink_api_key.value }}"
+  api_key: "{{ (bitwardenFields "item" "shlink").api_key.value }}"
 
 sftpgo:
   sftpgo_admin_user: "{{ (bitwarden "item" "sftpgo").login.username }}"
