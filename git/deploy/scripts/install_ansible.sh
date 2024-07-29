@@ -6,7 +6,7 @@ python3 -m venv ~/.venvs/deploy
 source ~/.venvs/deploy/bin/activate
 
 # Install ansible
-pip install ansible==2.16.6
+pip install ansible==9.8.0
 ansible-galaxy role install geerlingguy.docker
 
 # Show versions
