@@ -37,7 +37,8 @@ homarr:
 
 postgres15:
   postgres_user: "{{ (bitwarden "item" "postgres15").login.username }}"
-  postgres_password: "{{ (bitwarden "item" "postgres15").login.password }}" 
+  postgres_password: "{{ (bitwarden "item" "postgres15").login.password }}"
+  pgadmin_password: "{{ (bitwarden "item" "pgadmin").login.password }}"
 
 paperlessngx:
   paperless_admin_user: "{{ (bitwarden "item" "paperlessngx").login.username }}"
