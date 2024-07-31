@@ -69,8 +69,8 @@ sftpgo:
   sftpgo_db_user: "{{ (bitwardenFields "item" "postgres15").sftpgo_db_user.value }}"
   sftpgo_db_password: "{{ (bitwardenFields "item" "postgres15").sftpgo_db_password.value }}"
 
-linkthing:
-  linkthing_db_user: "{{ (bitwardenFields "item" "postgres15").linkthing_db_user.value }}"
-  linkthing_db_password: "{{ (bitwardenFields "item" "postgres15").linkthing_db_password.value }}" 
-  linkding_admin_user: "{{ (bitwarden "item" "linkthing").login.username }}"
-  linkding_admin_password: "{{ (bitwarden "item" "linkthing").login.password }}" 
+linkding:
+  linkding_db_user: "{{ (bitwardenFields "item" "postgres15").linkding_db_user.value }}"
+  linkding_db_password: "{{ (bitwardenFields "item" "postgres15").linkding_db_password.value }}" 
+  linkding_admin_user: "{{ (bitwarden "item" "linkding").login.username }}"
+  linkding_admin_password: "{{ (bitwarden "item" "linkding").login.password }}" 
