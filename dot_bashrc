@@ -125,7 +125,12 @@ if [ -d "/mnt/c/Program Files/VSCodium/bin" ]; then
   export PATH="$PATH:/mnt/c/Program Files/VSCodium/bin"
 fi
 
+# Create/activate Python deploy venv
 if [ -d ~/git/deploy ]; then 
   cd ~/git/deploy
-  source $venvs/deploy/bin/activate
+  if [ ! -d ~/.venvs ]; then 
+    mkdir ~/.venvs
+    python3 -m venv ~/.venvs/deploy
+  fi
+  source ~/.venvs/deploy/bin/activate
 fi
