@@ -37,7 +37,8 @@ homarr:
 
 postgres15:
   postgres_user: "{{ (bitwarden "item" "postgres15").login.username }}"
-  postgres_password: "{{ (bitwarden "item" "postgres15").login.password }}" 
+  postgres_password: "{{ (bitwarden "item" "postgres15").login.password }}"
+  pgadmin_password: "{{ (bitwarden "item" "pgadmin").login.password }}"
 
 paperlessngx:
   paperless_admin_user: "{{ (bitwarden "item" "paperlessngx").login.username }}"
@@ -57,13 +58,19 @@ freshrss:
 shlink:
   shlink_db_user: "{{ (bitwardenFields "item" "postgres15").shlink_db_user.value }}"
   shlink_db_password: "{{ (bitwardenFields "item" "postgres15").shlink_db_password.value }}"
-  api_key: "{{ (bitwardenFields "item" "shlink").shlink_api_key.value }}"
+  api_key: "{{ (bitwardenFields "item" "shlink").api_key.value }}"
 
 shlinkweb:
-  api_key: "{{ (bitwardenFields "item" "shlink").shlink_api_key.value }}"
+  api_key: "{{ (bitwardenFields "item" "shlink").api_key.value }}"
 
 sftpgo:
   sftpgo_admin_user: "{{ (bitwarden "item" "sftpgo").login.username }}"
   sftpgo_admin_password: "{{ (bitwarden "item" "sftpgo").login.password }}" 
   sftpgo_db_user: "{{ (bitwardenFields "item" "postgres15").sftpgo_db_user.value }}"
   sftpgo_db_password: "{{ (bitwardenFields "item" "postgres15").sftpgo_db_password.value }}"
+
+linkding:
+  linkding_db_user: "{{ (bitwardenFields "item" "postgres15").linkding_db_user.value }}"
+  linkding_db_password: "{{ (bitwardenFields "item" "postgres15").linkding_db_password.value }}" 
+  linkding_admin_user: "{{ (bitwarden "item" "linkding").login.username }}"
+  linkding_admin_password: "{{ (bitwarden "item" "linkding").login.password }}" 
