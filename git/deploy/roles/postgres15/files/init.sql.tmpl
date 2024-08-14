@@ -52,3 +52,15 @@ GRANT ALL PRIVILEGES ON DATABASE sftpgo TO {{ (bitwardenFields "item" "postgres1
 GRANT ALL PRIVILEGES ON DATABASE shlink TO {{ (bitwardenFields "item" "postgres15").shlink_db_user.value }};
 GRANT ALL PRIVILEGES ON DATABASE freshrss TO {{ (bitwardenFields "item" "postgres15").freshrss_db_user.value }};
 GRANT ALL PRIVILEGES ON DATABASE pgbackweb TO {{ (bitwardenFields "item" "postgres15").pgbackweb_db_user.value }};
+
+/* connection strings for backups
+postgresql://{{ (bitwardenFields "item" "postgres15").vaultwarden_db_user.value }}:{{ (bitwardenFields "item" "postgres15").vaultwarden_db_password.value }}@postgres15:5432/vaultwarden
+postgresql://{{ (bitwardenFields "item" "postgres15").piped_db_user.value }}:{{ (bitwardenFields "item" "postgres15").piped_db_password.value }}@postgres15:5432/piped
+postgresql://{{ (bitwardenFields "item" "postgres15").paperless_db_user.value }}:{{ (bitwardenFields "item" "postgres15").paperless_db_password.value }}@postgres15:5432/paperless
+postgresql://{{ (bitwardenFields "item" "postgres15").linkding_db_user.value }}:{{ (bitwardenFields "item" "postgres15").linkding_db_password.value }}@postgres15:5432/linkding
+postgresql://{{ (bitwardenFields "item" "postgres15").sftpgo_db_user.value }}:{{ (bitwardenFields "item" "postgres15").sftpgo_db_password.value }}@postgres15:5432/sftpgo
+postgresql://{{ (bitwardenFields "item" "postgres15").shlink_db_user.value }}:{{ (bitwardenFields "item" "postgres15").shlink_db_password.value }}@postgres15:5432/shlink
+postgresql://{{ (bitwardenFields "item" "postgres15").freshrss_db_user.value }}:{{ (bitwardenFields "item" "postgres15").freshrss_db_password.value }}@postgres15:5432/freshrss
+postgresql://{{ (bitwardenFields "item" "postgres15").pgbackweb_db_user.value }}:{{ (bitwardenFields "item" "postgres15").pgbackweb_db_password.value }}@postgres15:5432/pgbackweb
+postgresql://{{ (bitwardenFields "item" "postgres15").basync_db_user.value }}:{{ (bitwardenFields "item" "postgres15").basync_db_password.value }}@postgres15:5432/basync
+*/
