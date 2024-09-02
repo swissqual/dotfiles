@@ -19,7 +19,7 @@ autoheal:
     channel_id: ""
 
 vaultwarden:
-  organization: home
+  organization: swissqual
   http_basic_users: "{{ (bitwardenFields "item" "vaultwarden").http_basic_users.value }}"
   admin_token: "{{ (bitwardenFields "item" "vaultwarden").admin_token.value }}"
   vaultwarden_db_user: "{{ (bitwardenFields "item" "postgres15").vaultwarden_db_user.value }}"
@@ -39,6 +39,9 @@ postgres15:
   postgres_user: "{{ (bitwarden "item" "postgres15").login.username }}"
   postgres_password: "{{ (bitwarden "item" "postgres15").login.password }}"
   pgadmin_password: "{{ (bitwarden "item" "pgadmin").login.password }}"
+  pgbackweb_db_user: "{{ (bitwardenFields "item" "postgres15").pgbackweb_db_user.value }}"
+  pgbackweb_db_password: "{{ (bitwardenFields "item" "postgres15").pgbackweb_db_password.value }}"   
+  pbw_encryption_key: "{{ (bitwardenFields "item" "pgbackweb").pbw_encryption_key.value }}"   
 
 paperlessngx:
   paperless_admin_user: "{{ (bitwarden "item" "paperlessngx").login.username }}"
