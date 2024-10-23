@@ -6,15 +6,19 @@ CREATE DATABASE sftpgo;
 CREATE DATABASE shlink;
 CREATE DATABASE freshrss;
 CREATE DATABASE pgbackweb;
+CREATE DATABASE gitea;
+CREATE DATABASE immich;
 
-CREATE USER {{ (bitwardenFields "item" "postgres15").vaultwarden_db_user.value }} WITH PASSWORD '{{ (bitwardenFields "item" "postgres15").vaultwarden_db_password.value }}';
-CREATE USER {{ (bitwardenFields "item" "postgres15").piped_db_user.value }} WITH PASSWORD '{{ (bitwardenFields "item" "postgres15").piped_db_password.value }}';
-CREATE USER {{ (bitwardenFields "item" "postgres15").paperless_db_user.value }} WITH PASSWORD '{{ (bitwardenFields "item" "postgres15").paperless_db_password.value }}';
-CREATE USER {{ (bitwardenFields "item" "postgres15").linkding_db_user.value }} WITH PASSWORD '{{ (bitwardenFields "item" "postgres15").linkding_db_password.value }}';
-CREATE USER {{ (bitwardenFields "item" "postgres15").sftpgo_db_user.value }} WITH PASSWORD '{{ (bitwardenFields "item" "postgres15").sftpgo_db_password.value }}';
-CREATE USER {{ (bitwardenFields "item" "postgres15").shlink_db_user.value }} WITH PASSWORD '{{ (bitwardenFields "item" "postgres15").shlink_db_password.value }}';
-CREATE USER {{ (bitwardenFields "item" "postgres15").freshrss_db_user.value }} WITH PASSWORD '{{ (bitwardenFields "item" "postgres15").freshrss_db_password.value }}';
-CREATE USER {{ (bitwardenFields "item" "postgres15").pgbackweb_db_user.value }} WITH PASSWORD '{{ (bitwardenFields "item" "postgres15").pgbackweb_db_password.value }}';
+CREATE USER {{ (bitwardenFields "item" "postgres16").vaultwarden_db_user.value }} WITH PASSWORD '{{ (bitwardenFields "item" "postgres16").vaultwarden_db_password.value }}';
+CREATE USER {{ (bitwardenFields "item" "postgres16").piped_db_user.value }} WITH PASSWORD '{{ (bitwardenFields "item" "postgres16").piped_db_password.value }}';
+CREATE USER {{ (bitwardenFields "item" "postgres16").paperless_db_user.value }} WITH PASSWORD '{{ (bitwardenFields "item" "postgres16").paperless_db_password.value }}';
+CREATE USER {{ (bitwardenFields "item" "postgres16").linkding_db_user.value }} WITH PASSWORD '{{ (bitwardenFields "item" "postgres16").linkding_db_password.value }}';
+CREATE USER {{ (bitwardenFields "item" "postgres16").sftpgo_db_user.value }} WITH PASSWORD '{{ (bitwardenFields "item" "postgres16").sftpgo_db_password.value }}';
+CREATE USER {{ (bitwardenFields "item" "postgres16").shlink_db_user.value }} WITH PASSWORD '{{ (bitwardenFields "item" "postgres16").shlink_db_password.value }}';
+CREATE USER {{ (bitwardenFields "item" "postgres16").freshrss_db_user.value }} WITH PASSWORD '{{ (bitwardenFields "item" "postgres16").freshrss_db_password.value }}';
+CREATE USER {{ (bitwardenFields "item" "postgres16").pgbackweb_db_user.value }} WITH PASSWORD '{{ (bitwardenFields "item" "postgres16").pgbackweb_db_password.value }}';
+CREATE USER {{ (bitwardenFields "item" "postgres16").gitea_db_user.value }} WITH PASSWORD '{{ (bitwardenFields "item" "postgres16").gitea_db_password.value }}';
+CREATE USER {{ (bitwardenFields "item" "postgres16").immich_db_user.value }} WITH SUPERUSER PASSWORD '{{ (bitwardenFields "item" "postgres16").immich_db_password.value }}';
 
 REVOKE CONNECT ON DATABASE basync FROM PUBLIC;
 REVOKE CONNECT ON DATABASE vaultwarden FROM PUBLIC;
@@ -25,41 +29,51 @@ REVOKE CONNECT ON DATABASE sftpgo FROM PUBLIC;
 REVOKE CONNECT ON DATABASE shlink FROM PUBLIC;
 REVOKE CONNECT ON DATABASE freshrss FROM PUBLIC;
 REVOKE CONNECT ON DATABASE pgbackweb FROM PUBLIC;
+REVOKE CONNECT ON DATABASE gitea FROM PUBLIC;
+REVOKE CONNECT ON DATABASE immich FROM PUBLIC;
 
-GRANT CONNECT ON DATABASE vaultwarden TO {{ (bitwardenFields "item" "postgres15").vaultwarden_db_user.value }};
-GRANT CONNECT ON DATABASE piped TO {{ (bitwardenFields "item" "postgres15").piped_db_user.value }};
-GRANT CONNECT ON DATABASE paperless TO {{ (bitwardenFields "item" "postgres15").paperless_db_user.value }};
-GRANT CONNECT ON DATABASE linkding TO {{ (bitwardenFields "item" "postgres15").linkding_db_user.value }};
-GRANT CONNECT ON DATABASE sftpgo TO {{ (bitwardenFields "item" "postgres15").sftpgo_db_user.value }};
-GRANT CONNECT ON DATABASE shlink TO {{ (bitwardenFields "item" "postgres15").shlink_db_user.value }};
-GRANT CONNECT ON DATABASE freshrss TO {{ (bitwardenFields "item" "postgres15").freshrss_db_user.value }};
-GRANT CONNECT ON DATABASE pgbackweb TO {{ (bitwardenFields "item" "postgres15").pgbackweb_db_user.value }};
+GRANT CONNECT ON DATABASE vaultwarden TO {{ (bitwardenFields "item" "postgres16").vaultwarden_db_user.value }};
+GRANT CONNECT ON DATABASE piped TO {{ (bitwardenFields "item" "postgres16").piped_db_user.value }};
+GRANT CONNECT ON DATABASE paperless TO {{ (bitwardenFields "item" "postgres16").paperless_db_user.value }};
+GRANT CONNECT ON DATABASE linkding TO {{ (bitwardenFields "item" "postgres16").linkding_db_user.value }};
+GRANT CONNECT ON DATABASE sftpgo TO {{ (bitwardenFields "item" "postgres16").sftpgo_db_user.value }};
+GRANT CONNECT ON DATABASE shlink TO {{ (bitwardenFields "item" "postgres16").shlink_db_user.value }};
+GRANT CONNECT ON DATABASE freshrss TO {{ (bitwardenFields "item" "postgres16").freshrss_db_user.value }};
+GRANT CONNECT ON DATABASE pgbackweb TO {{ (bitwardenFields "item" "postgres16").pgbackweb_db_user.value }};
+GRANT CONNECT ON DATABASE gitea TO {{ (bitwardenFields "item" "postgres16").gitea_db_user.value }};
+GRANT CONNECT ON DATABASE immich TO {{ (bitwardenFields "item" "postgres16").immich_db_user.value }};
 
-ALTER DATABASE vaultwarden OWNER TO {{ (bitwardenFields "item" "postgres15").vaultwarden_db_user.value }};
-ALTER DATABASE piped OWNER TO {{ (bitwardenFields "item" "postgres15").piped_db_user.value }};
-ALTER DATABASE paperless OWNER TO {{ (bitwardenFields "item" "postgres15").paperless_db_user.value }};
-ALTER DATABASE linkding OWNER TO {{ (bitwardenFields "item" "postgres15").linkding_db_user.value }};
-ALTER DATABASE sftpgo OWNER TO {{ (bitwardenFields "item" "postgres15").sftpgo_db_user.value }};
-ALTER DATABASE shlink OWNER TO {{ (bitwardenFields "item" "postgres15").shlink_db_user.value }};
-ALTER DATABASE freshrss OWNER TO {{ (bitwardenFields "item" "postgres15").freshrss_db_user.value }};
-ALTER DATABASE pgbackweb OWNER TO {{ (bitwardenFields "item" "postgres15").pgbackweb_db_user.value }};
+ALTER DATABASE vaultwarden OWNER TO {{ (bitwardenFields "item" "postgres16").vaultwarden_db_user.value }};
+ALTER DATABASE piped OWNER TO {{ (bitwardenFields "item" "postgres16").piped_db_user.value }};
+ALTER DATABASE paperless OWNER TO {{ (bitwardenFields "item" "postgres16").paperless_db_user.value }};
+ALTER DATABASE linkding OWNER TO {{ (bitwardenFields "item" "postgres16").linkding_db_user.value }};
+ALTER DATABASE sftpgo OWNER TO {{ (bitwardenFields "item" "postgres16").sftpgo_db_user.value }};
+ALTER DATABASE shlink OWNER TO {{ (bitwardenFields "item" "postgres16").shlink_db_user.value }};
+ALTER DATABASE freshrss OWNER TO {{ (bitwardenFields "item" "postgres16").freshrss_db_user.value }};
+ALTER DATABASE pgbackweb OWNER TO {{ (bitwardenFields "item" "postgres16").pgbackweb_db_user.value }};
+ALTER DATABASE gitea OWNER TO {{ (bitwardenFields "item" "postgres16").gitea_db_user.value }};
+ALTER DATABASE immich OWNER TO {{ (bitwardenFields "item" "postgres16").immich_db_user.value }};
 
-GRANT ALL PRIVILEGES ON DATABASE vaultwarden TO {{ (bitwardenFields "item" "postgres15").vaultwarden_db_user.value }};
-GRANT ALL PRIVILEGES ON DATABASE piped TO {{ (bitwardenFields "item" "postgres15").piped_db_user.value }};
-GRANT ALL PRIVILEGES ON DATABASE paperless TO {{ (bitwardenFields "item" "postgres15").paperless_db_user.value }};
-GRANT ALL PRIVILEGES ON DATABASE linkding TO {{ (bitwardenFields "item" "postgres15").linkding_db_user.value }};
-GRANT ALL PRIVILEGES ON DATABASE sftpgo TO {{ (bitwardenFields "item" "postgres15").sftpgo_db_user.value }};
-GRANT ALL PRIVILEGES ON DATABASE shlink TO {{ (bitwardenFields "item" "postgres15").shlink_db_user.value }};
-GRANT ALL PRIVILEGES ON DATABASE freshrss TO {{ (bitwardenFields "item" "postgres15").freshrss_db_user.value }};
-GRANT ALL PRIVILEGES ON DATABASE pgbackweb TO {{ (bitwardenFields "item" "postgres15").pgbackweb_db_user.value }};
+GRANT ALL PRIVILEGES ON DATABASE vaultwarden TO {{ (bitwardenFields "item" "postgres16").vaultwarden_db_user.value }};
+GRANT ALL PRIVILEGES ON DATABASE piped TO {{ (bitwardenFields "item" "postgres16").piped_db_user.value }};
+GRANT ALL PRIVILEGES ON DATABASE paperless TO {{ (bitwardenFields "item" "postgres16").paperless_db_user.value }};
+GRANT ALL PRIVILEGES ON DATABASE linkding TO {{ (bitwardenFields "item" "postgres16").linkding_db_user.value }};
+GRANT ALL PRIVILEGES ON DATABASE sftpgo TO {{ (bitwardenFields "item" "postgres16").sftpgo_db_user.value }};
+GRANT ALL PRIVILEGES ON DATABASE shlink TO {{ (bitwardenFields "item" "postgres16").shlink_db_user.value }};
+GRANT ALL PRIVILEGES ON DATABASE freshrss TO {{ (bitwardenFields "item" "postgres16").freshrss_db_user.value }};
+GRANT ALL PRIVILEGES ON DATABASE pgbackweb TO {{ (bitwardenFields "item" "postgres16").pgbackweb_db_user.value }};
+GRANT ALL PRIVILEGES ON DATABASE gitea TO {{ (bitwardenFields "item" "postgres16").gitea_db_user.value }};
+GRANT ALL PRIVILEGES ON DATABASE immich TO {{ (bitwardenFields "item" "postgres16").immich_db_user.value }};
 
 /* connection strings for backups
-postgresql://{{ (bitwardenFields "item" "postgres15").vaultwarden_db_user.value }}:{{ (bitwardenFields "item" "postgres15").vaultwarden_db_password.value }}@postgres15:5432/vaultwarden
-postgresql://{{ (bitwardenFields "item" "postgres15").piped_db_user.value }}:{{ (bitwardenFields "item" "postgres15").piped_db_password.value }}@postgres15:5432/piped
-postgresql://{{ (bitwardenFields "item" "postgres15").paperless_db_user.value }}:{{ (bitwardenFields "item" "postgres15").paperless_db_password.value }}@postgres15:5432/paperless
-postgresql://{{ (bitwardenFields "item" "postgres15").linkding_db_user.value }}:{{ (bitwardenFields "item" "postgres15").linkding_db_password.value }}@postgres15:5432/linkding
-postgresql://{{ (bitwardenFields "item" "postgres15").sftpgo_db_user.value }}:{{ (bitwardenFields "item" "postgres15").sftpgo_db_password.value }}@postgres15:5432/sftpgo
-postgresql://{{ (bitwardenFields "item" "postgres15").shlink_db_user.value }}:{{ (bitwardenFields "item" "postgres15").shlink_db_password.value }}@postgres15:5432/shlink
-postgresql://{{ (bitwardenFields "item" "postgres15").freshrss_db_user.value }}:{{ (bitwardenFields "item" "postgres15").freshrss_db_password.value }}@postgres15:5432/freshrss
-postgresql://{{ (bitwardenFields "item" "postgres15").pgbackweb_db_user.value }}:{{ (bitwardenFields "item" "postgres15").pgbackweb_db_password.value }}@postgres15:5432/pgbackweb
+postgresql://{{ (bitwardenFields "item" "postgres16").vaultwarden_db_user.value }}:{{ (bitwardenFields "item" "postgres16").vaultwarden_db_password.value }}@postgres16:5432/vaultwarden
+postgresql://{{ (bitwardenFields "item" "postgres16").piped_db_user.value }}:{{ (bitwardenFields "item" "postgres16").piped_db_password.value }}@postgres16:5432/piped
+postgresql://{{ (bitwardenFields "item" "postgres16").paperless_db_user.value }}:{{ (bitwardenFields "item" "postgres16").paperless_db_password.value }}@postgres16:5432/paperless
+postgresql://{{ (bitwardenFields "item" "postgres16").linkding_db_user.value }}:{{ (bitwardenFields "item" "postgres16").linkding_db_password.value }}@postgres16:5432/linkding
+postgresql://{{ (bitwardenFields "item" "postgres16").sftpgo_db_user.value }}:{{ (bitwardenFields "item" "postgres16").sftpgo_db_password.value }}@postgres16:5432/sftpgo
+postgresql://{{ (bitwardenFields "item" "postgres16").shlink_db_user.value }}:{{ (bitwardenFields "item" "postgres16").shlink_db_password.value }}@postgres16:5432/shlink
+postgresql://{{ (bitwardenFields "item" "postgres16").freshrss_db_user.value }}:{{ (bitwardenFields "item" "postgres16").freshrss_db_password.value }}@postgres16:5432/freshrss
+postgresql://{{ (bitwardenFields "item" "postgres16").pgbackweb_db_user.value }}:{{ (bitwardenFields "item" "postgres16").pgbackweb_db_password.value }}@postgres16:5432/pgbackweb
+postgresql://{{ (bitwardenFields "item" "postgres16").gitea_db_user.value }}:{{ (bitwardenFields "item" "postgres16").gitea_db_password.value }}@postgres16:5432/gitea
+postgresql://{{ (bitwardenFields "item" "postgres16").immich_db_user.value }}:{{ (bitwardenFields "item" "postgres16").immich_db_password.value }}@postgres16:5432/immich
 */
