@@ -2,7 +2,7 @@ all_service_defaults:
 
 traefik:
   http_basic_users: "{{ (bitwardenFields "item" "traefik").http_basic_users.value }}"
-  internal_ip_ranges: [100.64.0.0/10]
+  internal_ip_ranges: [100.64.0.0/10, 192.168.44.0/24, 192.168.178.0/24]
 
 portainer:
   admin_user: "{{ (bitwarden "item" "portainer").login.username }}"
@@ -19,48 +19,47 @@ autoheal:
     channel_id: ""
 
 vaultwarden:
-  organization: swissqual
+  organization: home
   http_basic_users: "{{ (bitwardenFields "item" "vaultwarden").http_basic_users.value }}"
   admin_token: "{{ (bitwardenFields "item" "vaultwarden").admin_token.value }}"
-  vaultwarden_db_user: "{{ (bitwardenFields "item" "postgres15").vaultwarden_db_user.value }}"
-  vaultwarden_db_password: "{{ (bitwardenFields "item" "postgres15").vaultwarden_db_password.value }}" 
-
-tailscale:
-  name: tailscale
+  vaultwarden_db_user: "{{ (bitwardenFields "item" "postgres16").vaultwarden_db_user.value }}"
+  vaultwarden_db_password: "{{ (bitwardenFields "item" "postgres16").vaultwarden_db_password.value }}" 
 
 piped:
-  piped_db_user: "{{ (bitwardenFields "item" "postgres15").piped_db_user.value }}"
-  piped_db_password: "{{ (bitwardenFields "item" "postgres15").piped_db_password.value }}" 
+  piped_db_user: "{{ (bitwardenFields "item" "postgres16").piped_db_user.value }}"
+  piped_db_password: "{{ (bitwardenFields "item" "postgres16").piped_db_password.value }}" 
 
 homarr:
   name: homarr
 
-postgres15:
-  postgres_user: "{{ (bitwarden "item" "postgres15").login.username }}"
-  postgres_password: "{{ (bitwarden "item" "postgres15").login.password }}"
+postgres16:
+  postgres_user: "{{ (bitwarden "item" "postgres16").login.username }}"
+  postgres_password: "{{ (bitwarden "item" "postgres16").login.password }}"
   pgadmin_password: "{{ (bitwarden "item" "pgadmin").login.password }}"
-  pgbackweb_db_user: "{{ (bitwardenFields "item" "postgres15").pgbackweb_db_user.value }}"
-  pgbackweb_db_password: "{{ (bitwardenFields "item" "postgres15").pgbackweb_db_password.value }}"   
+
+pgbackweb:
+  pgbackweb_db_user: "{{ (bitwardenFields "item" "postgres16").pgbackweb_db_user.value }}"
+  pgbackweb_db_password: "{{ (bitwardenFields "item" "postgres16").pgbackweb_db_password.value }}"   
   pbw_encryption_key: "{{ (bitwardenFields "item" "pgbackweb").pbw_encryption_key.value }}"   
 
 paperlessngx:
   paperless_admin_user: "{{ (bitwarden "item" "paperlessngx").login.username }}"
   paperless_admin_password: "{{ (bitwarden "item" "paperlessngx").login.password }}"
-  paperless_db_user: "{{ (bitwardenFields "item" "postgres15").paperless_db_user.value }}"
-  paperless_db_password: "{{ (bitwardenFields "item" "postgres15").paperless_db_password.value }}" 
+  paperless_db_user: "{{ (bitwardenFields "item" "postgres16").paperless_db_user.value }}"
+  paperless_db_password: "{{ (bitwardenFields "item" "postgres16").paperless_db_password.value }}" 
   
 inbucket:
   name: inbucket
 
 freshrss:
-  freshrss_db_user: "{{ (bitwardenFields "item" "postgres15").freshrss_db_user.value }}"
-  freshrss_db_password: "{{ (bitwardenFields "item" "postgres15").freshrss_db_password.value }}" 
+  freshrss_db_user: "{{ (bitwardenFields "item" "postgres16").freshrss_db_user.value }}"
+  freshrss_db_password: "{{ (bitwardenFields "item" "postgres16").freshrss_db_password.value }}" 
   freshrss_admin_password: "{{ (bitwarden "item" "freshrss").login.password }}"
   freshrss_admin_api_password: "{{ (bitwardenFields "item" "freshrss").freshrss_admin_api_password.value }}" 
 
 shlink:
-  shlink_db_user: "{{ (bitwardenFields "item" "postgres15").shlink_db_user.value }}"
-  shlink_db_password: "{{ (bitwardenFields "item" "postgres15").shlink_db_password.value }}"
+  shlink_db_user: "{{ (bitwardenFields "item" "postgres16").shlink_db_user.value }}"
+  shlink_db_password: "{{ (bitwardenFields "item" "postgres16").shlink_db_password.value }}"
   api_key: "{{ (bitwardenFields "item" "shlink").api_key.value }}"
 
 shlinkweb:
@@ -69,11 +68,22 @@ shlinkweb:
 sftpgo:
   sftpgo_admin_user: "{{ (bitwarden "item" "sftpgo").login.username }}"
   sftpgo_admin_password: "{{ (bitwarden "item" "sftpgo").login.password }}" 
-  sftpgo_db_user: "{{ (bitwardenFields "item" "postgres15").sftpgo_db_user.value }}"
-  sftpgo_db_password: "{{ (bitwardenFields "item" "postgres15").sftpgo_db_password.value }}"
+  sftpgo_db_user: "{{ (bitwardenFields "item" "postgres16").sftpgo_db_user.value }}"
+  sftpgo_db_password: "{{ (bitwardenFields "item" "postgres16").sftpgo_db_password.value }}"
 
 linkding:
-  linkding_db_user: "{{ (bitwardenFields "item" "postgres15").linkding_db_user.value }}"
-  linkding_db_password: "{{ (bitwardenFields "item" "postgres15").linkding_db_password.value }}" 
+  linkding_db_user: "{{ (bitwardenFields "item" "postgres16").linkding_db_user.value }}"
+  linkding_db_password: "{{ (bitwardenFields "item" "postgres16").linkding_db_password.value }}" 
   linkding_admin_user: "{{ (bitwarden "item" "linkding").login.username }}"
   linkding_admin_password: "{{ (bitwarden "item" "linkding").login.password }}" 
+
+syncthing:
+  name: syncthing
+
+immich:
+  immich_db_user: "{{ (bitwardenFields "item" "postgres16").immich_db_user.value }}"
+  immich_db_password: "{{ (bitwardenFields "item" "postgres16").immich_db_password.value }}" 
+
+gitea:
+  gitea_db_user: "{{ (bitwardenFields "item" "postgres16").gitea_db_user.value }}"
+  gitea_db_password: "{{ (bitwardenFields "item" "postgres16").gitea_db_password.value }}" 
